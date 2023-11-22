@@ -15,8 +15,15 @@
     border :0px
 }
 </style>
+<script>
+      if (localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+</script>
 </body>
 <app-root></app-root>
 <body class="bg-white dark:bg-dracula-background dark:text-white">
-
 </html>

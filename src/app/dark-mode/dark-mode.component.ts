@@ -10,29 +10,30 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './dark-mode.component.css'
 })
 export class DarkModeComponent {
-  darkModeEnabled = false;
+  darkModeEnabled = localStorage.getItem('theme') == 'dark';
   faMoon = faMoon;
   faSun = faSun;
   onInit() {
-    const userPrefersDark = localStorage.getItem('theme') === 'dark';
-    const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    this.darkModeEnabled = userPrefersDark || (!localStorage.getItem('theme') && osPrefersDark);
-    this.updateDocumentClass();
   }
-  toggleDarkMode() {
-    this.darkModeEnabled = !this.darkModeEnabled;
+  private setLightTheme() {
+    localStorage['theme'] = 'light';
+    document.documentElement.classList.remove('dark');
+    this.darkModeEnabled = false;
+
+  }
+
+  private setDarkTheme() {
+    localStorage['theme'] = 'dark';
+    document.documentElement.classList.add('dark');
+    this.darkModeEnabled = true;
+  }
+  toogleDarkMode() {
     if (this.darkModeEnabled) {
-      document.documentElement.classList.add('dark');
+      console.log("🚀 ~ file: dark-mode.component.ts:32 ~ DarkModeComponent ~ toogleDarkMode ~ this.darkModeEnabled):", this.darkModeEnabled)
+      this.setLightTheme();
     }
     else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
-  private updateDocumentClass() {
-    if (this.darkModeEnabled) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+      this.setDarkTheme();
     }
   }
 }
