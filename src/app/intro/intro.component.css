@@ -1,0 +1,9 @@
+.hidden-anima{
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2000ms ;
+}
+.show{
+    opacity: 1;
+    transform: translateX(0);
+}
