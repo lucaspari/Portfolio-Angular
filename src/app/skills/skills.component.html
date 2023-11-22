@@ -1,0 +1,11 @@
+<div>
+    <h2 class="text-3xl font-bold my-8 max-sm:text-center hidden-anima">Tech Skills</h2>
+    <p class="text-xl text-justify max-sm:mx-4 hidden-anima">
+        Here are some of the technologies and tools I'm proficient and comfortable with:
+    </p>
+    <div class="my-6 flex justify-between flex-wrap hidden-no-transform">
+        <div class="flex justify-center basis-1/3" *ngFor="let skill of skills">
+            <img [src]="skill.src" class="w-20" [alt]="skill.alt">
+        </div>
+    </div>
+</div>

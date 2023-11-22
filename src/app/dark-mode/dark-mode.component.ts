@@ -29,7 +29,6 @@ export class DarkModeComponent {
   }
   toogleDarkMode() {
     if (this.darkModeEnabled) {
-      console.log("🚀 ~ file: dark-mode.component.ts:32 ~ DarkModeComponent ~ toogleDarkMode ~ this.darkModeEnabled):", this.darkModeEnabled)
       this.setLightTheme();
     }
     else {
